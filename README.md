@@ -1,4 +1,9 @@
-# Spring Boot H2 Database CRUD example: Building Rest API Service with Spring Data JPA Use In Memory Database
+# Spring Boot CRUD With In Memory DB
+
+Building Rest API Service with Spring Data JPA Use In Memory Database
+
+- Language Java
+- Database H2
 
 In this Project, we're going to build a Spring Boot Rest CRUD API examples with Maven that use Spring Data JPA to interact with H2 database.
 
