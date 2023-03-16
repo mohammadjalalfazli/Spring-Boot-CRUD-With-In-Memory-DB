@@ -178,4 +178,29 @@ public class AccountController {
         }
         return responseModel;
     }
+
+    @PostMapping("/search")
+    public Account searchAccountByCriteria1(@RequestBody Account request) {
+        ResponseModel responseModel = new ResponseModel();
+        var list = accountService.Search(request);
+
+        try {
+            list = accountService.Search(request);
+            responseModel.setIsSuccessful(true);
+            responseModel.setStatus (HttpStatus.OK);
+            responseModel.setMessage("Accounts Successfully Founded!");
+            responseModel.setData(list);
+            if(list.size() == 0){
+                responseModel.setMessage(" There Is No Accounts With Such Criteria!");
+                responseModel.setStatus(HttpStatus.NO_CONTENT);
+            }
+
+        } catch (Exception e) {
+
+            responseModel.setIsSuccessful(false);
+            responseModel.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+            responseModel.setMessage(e.toString());
+        }
+        return list.get(0);
+    }
 }
